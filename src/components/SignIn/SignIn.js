@@ -1,11 +1,11 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 class SignIn extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      signInEmail: "",
-      signInPassword: ""
+      signInEmail: '',
+      signInPassword: ''
     };
   }
 
@@ -18,10 +18,10 @@ class SignIn extends Component {
   };
 
   onSubmitSignIn = () => {
-    fetch("http://localhost:3001/signin", {
-      method: "post",
+    fetch('http://localhost:3001/signin', {
+      method: 'post',
       headers: {
-        "Content-Type": "application/json"
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify({
         email: this.state.signInEmail,
@@ -32,7 +32,7 @@ class SignIn extends Component {
       .then(user => {
         if (user.id) {
           this.props.loadUser(user);
-          this.props.onRouteChange("home");
+          this.props.onRouteChange('home');
         }
       });
   };
@@ -82,7 +82,7 @@ class SignIn extends Component {
             <div className="lh-copy mt3">
               <p
                 className="f6 link dim black db pointer"
-                onClick={() => onRouteChange("register")}
+                onClick={() => onRouteChange('register')}
               >
                 Register
               </p>

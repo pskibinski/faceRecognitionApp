@@ -1,12 +1,12 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 class Register extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      registerName: "",
-      registerEmail: "",
-      registerPassword: ""
+      registerName: '',
+      registerEmail: '',
+      registerPassword: ''
     };
   }
 
@@ -23,10 +23,10 @@ class Register extends Component {
   };
 
   onSubmitRegister = () => {
-    fetch("http://localhost:3001/register", {
-      method: "post",
+    fetch('http://localhost:3001/register', {
+      method: 'post',
       headers: {
-        "Content-Type": "application/json"
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify({
         name: this.state.registerName,
@@ -36,9 +36,9 @@ class Register extends Component {
     })
       .then(response => response.json())
       .then(user => {
-        if (user) {
+        if (user.id) {
           this.props.loadUser(user);
-          this.props.onRouteChange("home");
+          this.props.onRouteChange('home');
         }
       });
   };
