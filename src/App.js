@@ -67,7 +67,6 @@ class App extends Component {
   };
 
   displayFaceBox = box => {
-    console.log(box);
     this.setState({
       box: box
     });
@@ -86,7 +85,7 @@ class App extends Component {
       imgURL: input
     });
 
-    fetch('http://localhost:3001/imageurl', {
+    fetch('https://rocky-stream-29259.herokuapp.com/imageurl', {
       method: 'post',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -96,7 +95,7 @@ class App extends Component {
       .then(response => response.json())
       .then(response => {
         if (response) {
-          fetch('http://localhost:3001/image', {
+          fetch('https://rocky-stream-29259.herokuapp.com/image', {
             method: 'put',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -104,11 +103,11 @@ class App extends Component {
             })
           })
             .then(response => response.json())
-            .then(count => Object.assign(this.state.user, { entries: count }))
-            .catch(console.log);
+            .then(count =>
+              this.setState(Object.assign(this.state.user, { entries: count }))
+            );
         }
         this.displayFaceBox(this.calculateFaceLocation(response));
-        console.log(this.state);
       })
       .catch(err => console.log(err));
   };
