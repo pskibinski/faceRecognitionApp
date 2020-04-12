@@ -1,11 +1,11 @@
-import React from "react";
-import "./ImageLinkForm.css";
+import React from 'react';
+import './ImageLinkForm.css';
 
 const ImageLinkForm = ({ inputChange, onPictureSubmit }) => {
   return (
     <div>
       <p className="f3 center">
-        {"This magic brain will detect faces in your pictures."}
+        {'This magic brain will detect faces in your pictures.'}
       </p>
       <div>
         <div className="pa4 br3 shadow-5 center form">
